@@ -26,7 +26,7 @@ channel.notify("Mast Coding Tutorial!");
 // Subject (Publisher)
 class Subject {
     constructor() {
-        this.observers = [];  // List of subscribers
+        this.observers = [];  
     }
 
     subscribe(observer) {

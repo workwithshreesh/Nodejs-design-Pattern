@@ -326,4 +326,42 @@ obc.notify("Gaming Video")
 
 
 
+class Subject{
+    constructor(){
+        this.observer = []
+    }
 
+    subscribers(user){
+        this.observer.push(user)
+    }
+
+    unsubscribe(user){
+        this.observer = this.observer.filter(obs => obs!=user)
+    }
+
+    notify(data){
+        this.observer.forEach(observe => observe.update(data))
+    }
+}
+
+
+class Observers{
+    constructor(name){
+        this.name = name;
+    }
+
+    update(data){
+        console.log(`Hey ${this.name} This is ${data}`);
+    }
+}
+
+
+newChannel = new Subject()
+
+user1 = new Observers("Rahul");
+user2 = new Observers("Amit")
+
+newChannel.subscribers(user1)
+newChannel.subscribers(user2)
+
+newChannel.notify("Breaking News: Mumbai me heavy rainfall!")
