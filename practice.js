@@ -295,3 +295,35 @@ console.log("Normal Delivery:", mydelivery.calculateCost(amount))
 
 mydelivery.setStrategy(new FastDelivery())
 console.log("Fast Delivery:", mydelivery.calculateCost(amount))
+
+
+
+
+// observer pattern
+
+
+class Observer{
+    constructor(){
+        this.subscriber = []
+    }
+
+    subscribers(users){
+        this.subscriber.push(users)
+    }
+
+    notify(video){
+        this.subscriber.forEach((user)=>console.log(`Hey ${user} This is new video! ${video}`));
+    }
+}
+
+
+const obc = new Observer();
+obc.subscribers("Rahul");
+obc.subscribers("Amit");
+
+obc.notify("Gaming Video")
+
+
+
+
+
